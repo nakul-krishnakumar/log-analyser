@@ -1,0 +1,13 @@
+[project]
+name = "log-analyser"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pyspark[ml]==4.0.2",
+    "streamlit>=1.66.0",
+]
+
+[dependency-groups]
+dev = [
+    "playwright>=1.64.0",
+]

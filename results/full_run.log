@@ -1,0 +1,230 @@
+
+[1;36m==== 3/7 pig: parse Info column, reject non-IP, de-duplicate, packets -> 1-minute flows (Tez on YARN) ====[0m
+2026-10-15 03:08:01,077 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 0 Running: 0 Failed: 0 Killed: 0, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:08:21,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 10 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 1, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:08:41,077 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 22 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 2, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:09:01,077 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 35 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 3, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:09:21,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 50 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 5, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:09:41,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 65 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 5, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:10:01,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 132 Succeeded: 76 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 5, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:10:21,079 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 86 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 5, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:10:41,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 91 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 5, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:11:01,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 101 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 6, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:11:21,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 106 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 7, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:11:41,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 112 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 7, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:12:01,078 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 121 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 8, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:12:21,079 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 126 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 9, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:12:41,079 [Timer-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=RUNNING, progress=TotalTasks: 141 Succeeded: 133 Running: 5 Failed: 0 Killed: 0 KilledTaskAttempts: 9, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=null
+2026-10-15 03:12:51,719 [PigTezLauncher-0] INFO  org.apache.pig.backend.hadoop.executionengine.tez.TezJob - DAG Status: status=SUCCEEDED, progress=TotalTasks: 141 Succeeded: 141 Running: 0 Failed: 0 Killed: 0 KilledTaskAttempts: 10, diagnostics=, memoryUsedByAM=0, memoryUsedByTasks=0, counters=Counters: 75
+		Output records in _0_flows=7394677
+		Output records in _0_rejects=64
+		IO_ERROR=0
+Success!
+Input(s):
+Successfully read 74863855 records (10763445886 bytes) from: "/netlogs/raw/packets"
+Output(s):
+Successfully stored 7394677 records (1003653897 bytes) in: "/netlogs/pig/flows"
+Successfully stored 64 records (6474 bytes) in: "/netlogs/pig/rejects"
+957.2 M  957.2 M  /netlogs/pig/flows
+6.3 K    6.3 K    /netlogs/pig/rejects
+[2m(309s)[0m
+
+[1;36m==== 4/7 hive: warehouse, label join, reverse-flow join, per-host-minute features (Tez) ====[0m
+
+[1;36m==== 4/7 hive: validation + dashboard tables ====[0m
++-----------+----------+-----------+-----------+-----------+-------------+----------+--------------+---------+-----------------------------+-----------------------------+
+| scenario  | malware  | raw_rows  | rejected  |  packets  | duplicates  |  flows   |    bytes     |  hosts  |          first_ts           |           last_ts           |
++-----------+----------+-----------+-----------+-----------+-------------+----------+--------------+---------+-----------------------------+-----------------------------+
+| ctu46     | Virut    | 4479658   | 2         | 4479656   | 0           | 354796   | 3743754770   | 39737   | 2011-08-15 14:43:20.931208  | 2011-08-15 15:13:26.817435  |
+| ctu52     | Rbot     | 6336398   | 4         | 6336394   | 0           | 260419   | 5478897426   | 39884   | 2011-08-18 13:39:35.087798  | 2011-08-18 13:55:46.380187  |
+| ctu53     | NSIS.ay  | 13208566  | 4         | 13208562  | 0           | 974356   | 8716148654   | 87422   | 2011-08-19 08:32:11.292538  | 2011-08-19 09:45:43.651750  |
+| ctu54     | Virut    | 50839229  | 54        | 50839175  | 0           | 5805106  | 35535230854  | 304326  | 2011-08-15 15:13:40.449530  | 2011-08-16 07:36:00.810412  |
++-----------+----------+-----------+-----------+-----------+-------------+----------+--------------+---------+-----------------------------+-----------------------------+
++-----------+--------+-----------+--------------+----------+
+| scenario  | proto  |   pkts    |    bytes     |  flows   |
++-----------+--------+-----------+--------------+----------+
+| ctu46     | TCP    | 4074304   | 3670478413   | 125050   |
+| ctu46     | UDP    | 397607    | 71695603     | 227362   |
+| ctu46     | ICMP   | 7745      | 1580754      | 2384     |
+| ctu52     | UDP    | 2231390   | 1878865073   | 172582   |
+| ctu52     | TCP    | 2065429   | 1434971922   | 85445    |
+| ctu52     | ICMP   | 2039575   | 2165060431   | 2392     |
+| ctu53     | TCP    | 11454328  | 8084292822   | 328880   |
+| ctu53     | UDP    | 1728489   | 626681364    | 634909   |
+| ctu53     | ICMP   | 25745     | 5174468      | 10567    |
+| ctu54     | TCP    | 44254493  | 34416428483  | 1460170  |
+| ctu54     | UDP    | 6412243   | 1090977779   | 4305160  |
+| ctu54     | ICMP   | 172439    | 27824592     | 39776    |
++-----------+--------+-----------+--------------+----------+
++---------+----------+---------------------+---------------------+---------------------+-----------------------+----------------------+---------------------+--------------------+--------------------+---------------------+---------------------+
+|  label  | windows  |       n_flows       |      n_dst_ips      |     n_dst_ports     |    unanswered_syn     |    no_reply_flows    |      dns_flows      |     smtp_flows     |     http_flows     |      irc_flows      |        bytes        |
++---------+----------+---------------------+---------------------+---------------------+-----------------------+----------------------+---------------------+--------------------+--------------------+---------------------+---------------------+
+| Botnet  | 1192     | 41.67030201342282   | 17.039429530201343  | 9.170302013422818   | 26.088926174496645    | 8.77768456375839     | 3.946308724832215   | 6.580536912751678  | 3.290268456375839  | 1.0360738255033557  | 1934897.9253355705  |
+| Normal  | 2197     | 27.967683204369596  | 9.27628584433318    | 3.0113791533909877  | 0.002275830678197542  | 0.07328174783796086  | 12.678652708238507  | 0.0                | 8.369594902139282  | 0.0                 | 178522.06417842512  |
++---------+----------+---------------------+---------------------+---------------------+-----------------------+----------------------+---------------------+--------------------+--------------------+---------------------+---------------------+
++-----------+----------------+---------+----------+-------------+--------+------------+
+| scenario  |       ip       |  label  |   pkts   |    bytes    | flows  | n_dst_ips  |
++-----------+----------------+---------+----------+-------------+--------+------------+
+| ctu52     | 147.32.84.165  | Botnet  | 1017198  | 1084231652  | 81     | 6          |
+| ctu52     | 147.32.84.191  | Botnet  | 1012691  | 1079429198  | 81     | 6          |
++-----------+----------------+---------+----------+-------------+--------+------------+
+[2m(767s)[0m
+
+[1;36m==== 5/7 spark mllib: botnet detection, leave-one-capture-out ====[0m
+host-minute windows: 2274264  labelled: 3389  features: 23
++--------+------+-----+
+|scenario| label|count|
++--------+------+-----+
+|   ctu46|Botnet|   21|
+|   ctu46|Normal|   80|
+|   ctu52|Botnet|   16|
+|   ctu52|Normal|   51|
+|   ctu53|Botnet|  177|
+|   ctu53|Normal|  222|
+|   ctu54|Botnet|  978|
+|   ctu54|Normal| 1844|
++--------+------+-----+
+held_out      model                      precision  recall      f1  auc_pr     tp     fp     fn     tn
+ctu46         rule_20_dst_ips_per_min       0.1154  0.2857  0.1644       -      6     46     15     34
+ctu46         logistic_regression              1.0     1.0     1.0     1.0     21      0      0     80
+ctu46         random_forest                    1.0     1.0     1.0     1.0     21      0      0     80
+ctu52         rule_20_dst_ips_per_min          0.0     0.0     0.0       -      0      4     16     47
+ctu52         logistic_regression              1.0  0.4375  0.6087  0.9685      7      0      9     51
+ctu52         random_forest                    1.0    0.25     0.4  0.9344      4      0     12     51
+ctu53         rule_20_dst_ips_per_min       0.7373   0.904  0.8122       -    160     57     17    165
+ctu53         logistic_regression              1.0  0.0904  0.1658  0.7627     16      0    161    222
+ctu53         random_forest                    1.0  0.0282  0.0549     1.0      5      0    172    222
+ctu54         rule_20_dst_ips_per_min       0.9016  0.2249  0.3601       -    220     24    758   1820
+ctu54         logistic_regression           0.3376  0.3793  0.3572  0.5824    371    728    607   1116
+ctu54         random_forest                 0.3893  0.4744  0.4276  0.3723    464    728    514   1116
+ALL (pooled)  rule_20_dst_ips_per_min       0.7466  0.3238  0.4517       -    386    131    806   2066
+ALL (pooled)  logistic_regression           0.3631  0.3482  0.3555       -    415    728    777   1469
+ALL (pooled)  random_forest                 0.4043  0.4144  0.4093       -    494    728    698   1469
+top features: unanswered_syn=0.217, no_reply_flows=0.183, syn_flows=0.137, tcp_flows=0.066, https_flows=0.064, high_port_flows=0.063, smtp_flows=0.053, n_dst_ports=0.038
+predictions -> hdfs://localhost:9000/netlogs/spark/{window_predictions,host_scores} ; metrics -> /home/nakul/devfiles/PROJECTS/log-analyser/results/metrics.json
+[2m(51s)[0m
+
+[1;36m==== 6/7 hive: query Spark's predictions ====[0m
++-----------+----------------+---------+----------------------+----------+----------+--------------+
+| scenario  |       ip       |  label  |        model         | windows  | flagged  | flagged_pct  |
++-----------+----------------+---------+----------------------+----------+----------+--------------+
+| ctu46     | 147.32.84.165  | Botnet  | logistic_regression  | 21       | 21       | 100.0        |
+| ctu46     | 147.32.84.165  | Botnet  | random_forest        | 21       | 21       | 100.0        |
+| ctu46     | 147.32.84.134  | Normal  | logistic_regression  | 19       | 0        | 0.0          |
+| ctu46     | 147.32.84.134  | Normal  | random_forest        | 19       | 0        | 0.0          |
+| ctu46     | 147.32.84.164  | Normal  | logistic_regression  | 30       | 0        | 0.0          |
+| ctu46     | 147.32.84.164  | Normal  | random_forest        | 30       | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | logistic_regression  | 31       | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | random_forest        | 31       | 0        | 0.0          |
+| ctu52     | 147.32.84.165  | Botnet  | logistic_regression  | 6        | 3        | 50.0         |
+| ctu52     | 147.32.84.165  | Botnet  | random_forest        | 6        | 1        | 16.7         |
+| ctu52     | 147.32.84.191  | Botnet  | logistic_regression  | 6        | 3        | 50.0         |
+| ctu52     | 147.32.84.191  | Botnet  | random_forest        | 6        | 2        | 33.3         |
+| ctu52     | 147.32.84.192  | Botnet  | logistic_regression  | 4        | 1        | 25.0         |
+| ctu52     | 147.32.84.192  | Botnet  | random_forest        | 4        | 1        | 25.0         |
+| ctu52     | 147.32.84.134  | Normal  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.134  | Normal  | random_forest        | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | random_forest        | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | random_forest        | 17       | 0        | 0.0          |
+| ctu53     | 147.32.84.165  | Botnet  | logistic_regression  | 63       | 3        | 4.8          |
+| ctu53     | 147.32.84.165  | Botnet  | random_forest        | 63       | 1        | 1.6          |
+| ctu53     | 147.32.84.191  | Botnet  | logistic_regression  | 58       | 6        | 10.3         |
+| ctu53     | 147.32.84.191  | Botnet  | random_forest        | 58       | 2        | 3.4          |
+| ctu53     | 147.32.84.192  | Botnet  | logistic_regression  | 56       | 7        | 12.5         |
+| ctu53     | 147.32.84.192  | Botnet  | random_forest        | 56       | 2        | 3.6          |
+| ctu53     | 147.32.84.134  | Normal  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.134  | Normal  | random_forest        | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | random_forest        | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | random_forest        | 74       | 0        | 0.0          |
+| ctu54     | 147.32.84.165  | Botnet  | logistic_regression  | 978      | 371      | 37.9         |
+| ctu54     | 147.32.84.165  | Botnet  | random_forest        | 978      | 464      | 47.4         |
+| ctu54     | 147.32.84.134  | Normal  | logistic_regression  | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.134  | Normal  | random_forest        | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.164  | Normal  | logistic_regression  | 818      | 726      | 88.8         |
+| ctu54     | 147.32.84.164  | Normal  | random_forest        | 818      | 728      | 89.0         |
+| ctu54     | 147.32.84.170  | Normal  | logistic_regression  | 983      | 2        | 0.2          |
+| ctu54     | 147.32.84.170  | Normal  | random_forest        | 983      | 0        | 0.0          |
++-----------+----------------+---------+----------------------+----------+----------+--------------+
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
+| scenario  |       ip       | windows  | flagged_windows  |  max_p  | mean_p  |  flows   | n_dst_ips  | unanswered_syn  | smtp_flows  | top_dport  |
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
+| ctu46     | 147.32.84.229  | 31       | 31               | 0.93    | 0.8845  | 63313    | 2378       | 1               | 0           | 33033      |
+| ctu46     | 147.32.80.9    | 31       | 31               | 1.0     | 0.8829  | 51847    | 58         | 0               | 0           | 1025       |
+| ctu46     | 147.32.80.13   | 31       | 31               | 0.92    | 0.8613  | 2299     | 18         | 0               | 0           | 123        |
+| ctu46     | 147.32.84.118  | 31       | 31               | 0.91    | 0.8177  | 5232     | 211        | 692             | 0           | 6881       |
+| ctu46     | 147.32.87.238  | 31       | 31               | 0.92    | 0.7745  | 1023     | 35         | 0               | 0           | 80         |
+| ctu46     | 147.32.84.215  | 31       | 31               | 0.82    | 0.7572  | 71       | 3          | 60              | 0           | 6889       |
+| ctu46     | 147.32.84.2    | 31       | 31               | 0.91    | 0.7516  | 1163     | 17         | 0               | 0           | 53         |
+| ctu46     | 147.32.85.74   | 31       | 31               | 0.77    | 0.7465  | 302      | 6          | 120             | 0           | 6889       |
+| ctu46     | 147.32.84.59   | 31       | 31               | 0.79    | 0.7058  | 30538    | 340        | 181             | 1           | 53         |
+| ctu46     | 147.32.96.69   | 31       | 31               | 0.67    | 0.6584  | 62       | 2          | 0               | 0           | 5000       |
+| ctu46     | 147.32.87.1    | 31       | 31               | 0.67    | 0.5742  | 349      | 16         | 0               | 0           | 0          |
+| ctu46     | 147.32.84.171  | 31       | 30               | 0.97    | 0.8745  | 633      | 18         | 82              | 0           | 53         |
+| ctu46     | 147.32.84.111  | 31       | 30               | 0.98    | 0.7735  | 684      | 31         | 2               | 0           | 53         |
+| ctu46     | 147.32.86.179  | 31       | 30               | 0.95    | 0.6574  | 1017     | 36         | 0               | 0           | 80         |
+| ctu46     | 147.32.87.135  | 30       | 30               | 0.607   | 0.607   | 30       | 1          | 0               | 0           | 123        |
+| ctu52     | 147.32.84.229  | 17       | 17               | 0.94    | 0.8982  | 41063    | 2669       | 0               | 0           | 33033      |
+| ctu52     | 147.32.80.9    | 17       | 17               | 1.0     | 0.8476  | 29651    | 53         | 0               | 0           | 1025       |
+| ctu52     | 147.32.86.116  | 17       | 17               | 0.93    | 0.8441  | 17104    | 1225       | 0               | 0           | 80         |
+| ctu52     | 147.32.80.13   | 17       | 17               | 0.88    | 0.8424  | 1204     | 18         | 0               | 0           | 80         |
+| ctu52     | 147.32.84.118  | 17       | 17               | 0.96    | 0.8224  | 2076     | 146        | 217             | 0           | 6881       |
+| ctu52     | 147.32.84.179  | 17       | 17               | 0.9206  | 0.8178  | 137      | 10         | 43              | 0           | 22         |
+| ctu52     | 147.32.85.26   | 17       | 17               | 0.88    | 0.7906  | 1418     | 58         | 69              | 0           | 443        |
+| ctu52     | 147.32.84.68   | 17       | 17               | 0.88    | 0.7771  | 767      | 41         | 0               | 0           | 443        |
+| ctu52     | 147.32.84.215  | 17       | 17               | 0.7624  | 0.7567  | 37       | 3          | 33              | 0           | 6889       |
+| ctu52     | 147.32.85.74   | 17       | 17               | 0.77    | 0.7424  | 158      | 6          | 64              | 0           | 6889       |
+| ctu52     | 147.32.84.59   | 17       | 17               | 0.74    | 0.74    | 20043    | 900        | 237             | 0           | 80         |
+| ctu52     | 147.32.3.51    | 17       | 17               | 0.78    | 0.7118  | 67       | 4          | 33              | 0           | 10010      |
+| ctu52     | 147.32.84.111  | 17       | 17               | 0.83    | 0.7094  | 943      | 60         | 0               | 0           | 39973      |
+| ctu52     | 147.32.87.238  | 17       | 17               | 0.93    | 0.7094  | 631      | 34         | 0               | 0           | 80         |
+| ctu52     | 147.32.86.44   | 17       | 17               | 0.9     | 0.6759  | 350      | 21         | 1               | 0           | 3128       |
+| ctu53     | 147.32.84.94   | 74       | 74               | 0.99    | 0.909   | 2759     | 204        | 60              | 0           | 50012      |
+| ctu53     | 147.32.84.215  | 74       | 74               | 0.95    | 0.9017  | 148      | 2          | 125             | 0           | 6889       |
+| ctu53     | 147.32.84.229  | 74       | 74               | 0.93    | 0.8586  | 179380   | 2878       | 1               | 0           | 33033      |
+| ctu53     | 147.32.80.9    | 74       | 74               | 1.0     | 0.8519  | 126998   | 59         | 0               | 0           | 3079       |
+| ctu53     | 147.32.80.13   | 74       | 74               | 0.9     | 0.8427  | 8399     | 27         | 14              | 0           | 80         |
+| ctu53     | 147.32.85.26   | 74       | 74               | 0.9     | 0.8172  | 5172     | 98         | 257             | 0           | 443        |
+| ctu53     | 147.32.87.220  | 74       | 74               | 0.98    | 0.7304  | 1854     | 40         | 2               | 0           | 80         |
+| ctu53     | 147.32.3.51    | 74       | 74               | 0.77    | 0.711   | 295      | 5          | 144             | 0           | 10010      |
+| ctu53     | 147.32.84.111  | 74       | 74               | 0.83    | 0.697   | 3971     | 69         | 0               | 0           | 18222      |
+| ctu53     | 147.32.84.19   | 74       | 74               | 0.97    | 0.6908  | 1548     | 12         | 18              | 8           | 53         |
+| ctu53     | 147.32.84.2    | 74       | 74               | 0.94    | 0.6814  | 1800     | 20         | 0               | 0           | 53         |
+| ctu53     | 147.32.84.59   | 74       | 74               | 0.8     | 0.6731  | 75921    | 855        | 194             | 3           | 80         |
+| ctu53     | 147.32.96.69   | 74       | 74               | 0.67    | 0.6612  | 148      | 2          | 0               | 0           | 5081       |
+| ctu53     | 147.32.87.135  | 74       | 74               | 0.607   | 0.607   | 74       | 1          | 0               | 0           | 123        |
+| ctu53     | 147.32.87.1    | 74       | 74               | 0.67    | 0.5759  | 813      | 15         | 0               | 0           | 0          |
+| ctu54     | 147.32.80.13   | 984      | 984              | 0.98    | 0.9187  | 23841    | 18         | 0               | 0           | 123        |
+| ctu54     | 147.32.84.229  | 984      | 984              | 0.98    | 0.882   | 1522262  | 2393       | 108             | 0           | 33033      |
+| ctu54     | 147.32.80.9    | 983      | 983              | 1.0     | 0.8057  | 742649   | 74         | 0               | 0           | 1024       |
+| ctu54     | 147.32.84.215  | 982      | 982              | 0.95    | 0.8516  | 2216     | 4          | 1810            | 1           | 6889       |
+| ctu54     | 147.32.87.1    | 984      | 982              | 0.69    | 0.58    | 10039    | 18         | 0               | 0           | 0          |
+| ctu54     | 147.32.96.69   | 983      | 980              | 0.8302  | 0.6655  | 1962     | 2          | 0               | 0           | 5081       |
+| ctu54     | 147.32.85.74   | 983      | 979              | 0.95    | 0.8453  | 8256     | 10         | 3625            | 0           | 6889       |
+| ctu54     | 147.32.84.111  | 983      | 967              | 0.99    | 0.7044  | 36277    | 95         | 1               | 0           | 5938       |
+| ctu54     | 147.32.84.2    | 984      | 951              | 0.95    | 0.6461  | 27262    | 30         | 0               | 0           | 53         |
+| ctu54     | 147.32.87.135  | 979      | 938              | 0.607   | 0.5959  | 1008     | 2          | 0               | 0           | 123        |
+| ctu54     | 147.32.84.166  | 983      | 883              | 0.8172  | 0.625   | 3870     | 7          | 0               | 0           | 6667       |
+| ctu54     | 147.32.87.48   | 876      | 813              | 0.8202  | 0.63    | 6652     | 19         | 0               | 0           | 161        |
+| ctu54     | 147.32.87.38   | 983      | 777              | 0.98    | 0.6418  | 5015     | 10         | 295             | 295         | 161        |
+| ctu54     | 147.32.85.56   | 979      | 761              | 0.99    | 0.5854  | 13827    | 52         | 3               | 0           | 42891      |
+| ctu54     | 147.32.85.84   | 980      | 739              | 0.99    | 0.6724  | 9888     | 132        | 17              | 0           | 53         |
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
+[2m(35s)[0m
+
+[1;36m==== 7/7 export: dashboard tables HDFS -> results/dashboard ====[0m
+host_verdicts
+label_profile
+overview
+protocols
+sample_botnet_packets.csv
+suspicious_hosts
+top_ports
+top_talkers
+traffic
+[2m(3s)[0m
+
+[1;36m==== done — dashboard: uv run streamlit run ui/app.py ====[0m

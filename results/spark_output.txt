@@ -1,0 +1,42 @@
+internal host-minutes by label, before/after the activity filter:
++----------+------+-------+
+|      kind|   all|pkts>=5|
++----------+------+-------+
+|    Botnet|  1192|   1186|
+|    Normal|  2197|   1475|
+|background|151343|  84201|
++----------+------+-------+
+samples: 86862  infected: 1186  features: 23
+protocol               test          model                      precision  recall      f1  auc_pr normal_fpr     tp     fp     fn      tn
+temporal_70_30         ctu46         rule_20_dst_ips_per_min       0.0238  0.3333  0.0444       -     0.3684      3    123      6     906
+temporal_70_30         ctu52         rule_20_dst_ips_per_min          0.0     0.0     0.0       -     0.2667      0     79      5     541
+temporal_70_30         ctu53         rule_20_dst_ips_per_min       0.1938  0.9841  0.3238       -      0.197     62    258      1    2660
+temporal_70_30         ctu54         rule_20_dst_ips_per_min        0.001  0.0034  0.0015       -     0.0514      1   1022    292   20111
+temporal_70_30         ctu46         logistic_regression           0.4286     1.0     0.6     1.0        0.0      9     12      0    1017
+temporal_70_30         ctu52         logistic_regression           0.1429     0.8  0.2424  0.1644        0.0      4     24      1     596
+temporal_70_30         ctu53         logistic_regression              0.5     1.0  0.6667  0.9601        0.0     63     63      0    2855
+temporal_70_30         ctu54         logistic_regression           0.5105     1.0  0.6759  0.8766        0.0    293    281      0   20852
+temporal_70_30         ctu46         random_forest                    1.0     1.0     1.0     1.0        0.0      9      0      0    1029
+temporal_70_30         ctu52         random_forest                    0.0     0.0     0.0  0.1531        0.0      0      0      5     620
+temporal_70_30         ctu53         random_forest                    1.0  0.9524  0.9756     1.0        0.0     60      0      3    2918
+temporal_70_30         ctu54         random_forest                 0.9966     1.0  0.9983     1.0        0.0    293      1      0   21132
+temporal_70_30         ALL (pooled)  rule_20_dst_ips_per_min       0.0426  0.1784  0.0688       -     0.0871     66   1482    304   24218
+temporal_70_30         ALL (pooled)  logistic_regression           0.4927  0.9973  0.6595       -        0.0    369    380      1   25320
+temporal_70_30         ALL (pooled)  random_forest                 0.9972  0.9784  0.9877       -        0.0    362      1      8   25699
+leave_one_capture_out  ctu46         rule_20_dst_ips_per_min       0.0148  0.2857  0.0282       -      0.575      6    399     15    2943
+leave_one_capture_out  ctu46         logistic_regression           0.2468  0.9048  0.3878  0.8712        0.0     19     58      2    3284
+leave_one_capture_out  ctu46         random_forest                    1.0  0.5238  0.6875     1.0        0.0     11      0     10    3342
+leave_one_capture_out  ctu52         rule_20_dst_ips_per_min          0.0     0.0     0.0       -     0.0784      0    265     11    1846
+leave_one_capture_out  ctu52         logistic_regression           0.0909  0.3636  0.1455  0.0397        0.0      4     40      7    2071
+leave_one_capture_out  ctu52         random_forest                    0.0     0.0     0.0  0.0204        0.0      0      0     11    2111
+leave_one_capture_out  ctu53         rule_20_dst_ips_per_min       0.1484   0.904   0.255       -     0.2568    160    918     17    8749
+leave_one_capture_out  ctu53         logistic_regression           0.0746  0.0282   0.041  0.0294        0.0      5     62    172    9605
+leave_one_capture_out  ctu53         random_forest                    0.0     0.0     0.0  0.0144        0.0      0      0    177    9667
+leave_one_capture_out  ctu54         rule_20_dst_ips_per_min       0.0567  0.2252  0.0906       -     0.0214    220   3658    757   66898
+leave_one_capture_out  ctu54         logistic_regression           0.1159  0.2262  0.1533  0.1594     0.0018    221   1686    756   68870
+leave_one_capture_out  ctu54         random_forest                 0.9583  0.0471  0.0898   0.974        0.0     46      2    931   70554
+leave_one_capture_out  ALL (pooled)  rule_20_dst_ips_per_min       0.0686  0.3255  0.1133       -     0.0888    386   5240    800   80436
+leave_one_capture_out  ALL (pooled)  logistic_regression           0.1189  0.2099  0.1518       -     0.0014    249   1846    937   83830
+leave_one_capture_out  ALL (pooled)  random_forest                 0.9661  0.0481  0.0916       -        0.0     57      2   1129   85674
+top features (RF, mean over folds): unanswered_syn=0.152, syn_flows=0.127, https_flows=0.099, n_flows=0.091, tcp_flows=0.082, n_src_ports=0.060, high_port_flows=0.051, n_dst_ips=0.042
+predictions -> hdfs://localhost:9000/netlogs/spark/{window_predictions,host_scores} ; metrics -> /home/nakul/devfiles/PROJECTS/log-analyser/results/metrics.json

@@ -1,0 +1,144 @@
++-----------+----------------+---------+------------------------+----------------------+----------+----------+--------------+
+| scenario  |       ip       |  label  |        protocol        |        model         | windows  | flagged  | flagged_pct  |
++-----------+----------------+---------+------------------------+----------------------+----------+----------+--------------+
+| ctu46     | 147.32.84.165  | Botnet  | leave_one_capture_out  | logistic_regression  | 21       | 19       | 90.5         |
+| ctu46     | 147.32.84.165  | Botnet  | leave_one_capture_out  | random_forest        | 21       | 11       | 52.4         |
+| ctu46     | 147.32.84.134  | Normal  | leave_one_capture_out  | logistic_regression  | 19       | 0        | 0.0          |
+| ctu46     | 147.32.84.134  | Normal  | leave_one_capture_out  | random_forest        | 19       | 0        | 0.0          |
+| ctu46     | 147.32.84.164  | Normal  | leave_one_capture_out  | logistic_regression  | 30       | 0        | 0.0          |
+| ctu46     | 147.32.84.164  | Normal  | leave_one_capture_out  | random_forest        | 30       | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | leave_one_capture_out  | logistic_regression  | 31       | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | leave_one_capture_out  | random_forest        | 31       | 0        | 0.0          |
+| ctu52     | 147.32.84.165  | Botnet  | leave_one_capture_out  | logistic_regression  | 4        | 1        | 25.0         |
+| ctu52     | 147.32.84.165  | Botnet  | leave_one_capture_out  | random_forest        | 4        | 0        | 0.0          |
+| ctu52     | 147.32.84.191  | Botnet  | leave_one_capture_out  | logistic_regression  | 5        | 3        | 60.0         |
+| ctu52     | 147.32.84.191  | Botnet  | leave_one_capture_out  | random_forest        | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.192  | Botnet  | leave_one_capture_out  | logistic_regression  | 2        | 0        | 0.0          |
+| ctu52     | 147.32.84.192  | Botnet  | leave_one_capture_out  | random_forest        | 2        | 0        | 0.0          |
+| ctu52     | 147.32.84.134  | Normal  | leave_one_capture_out  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.134  | Normal  | leave_one_capture_out  | random_forest        | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | leave_one_capture_out  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | leave_one_capture_out  | random_forest        | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | leave_one_capture_out  | logistic_regression  | 17       | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | leave_one_capture_out  | random_forest        | 17       | 0        | 0.0          |
+| ctu53     | 147.32.84.165  | Botnet  | leave_one_capture_out  | logistic_regression  | 63       | 1        | 1.6          |
+| ctu53     | 147.32.84.165  | Botnet  | leave_one_capture_out  | random_forest        | 63       | 0        | 0.0          |
+| ctu53     | 147.32.84.191  | Botnet  | leave_one_capture_out  | logistic_regression  | 58       | 1        | 1.7          |
+| ctu53     | 147.32.84.191  | Botnet  | leave_one_capture_out  | random_forest        | 58       | 0        | 0.0          |
+| ctu53     | 147.32.84.192  | Botnet  | leave_one_capture_out  | logistic_regression  | 56       | 3        | 5.4          |
+| ctu53     | 147.32.84.192  | Botnet  | leave_one_capture_out  | random_forest        | 56       | 0        | 0.0          |
+| ctu53     | 147.32.84.134  | Normal  | leave_one_capture_out  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.134  | Normal  | leave_one_capture_out  | random_forest        | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | leave_one_capture_out  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | leave_one_capture_out  | random_forest        | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | leave_one_capture_out  | logistic_regression  | 74       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | leave_one_capture_out  | random_forest        | 74       | 0        | 0.0          |
+| ctu54     | 147.32.84.165  | Botnet  | leave_one_capture_out  | logistic_regression  | 977      | 221      | 22.6         |
+| ctu54     | 147.32.84.165  | Botnet  | leave_one_capture_out  | random_forest        | 977      | 46       | 4.7          |
+| ctu54     | 147.32.84.134  | Normal  | leave_one_capture_out  | logistic_regression  | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.134  | Normal  | leave_one_capture_out  | random_forest        | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.164  | Normal  | leave_one_capture_out  | logistic_regression  | 96       | 2        | 2.1          |
+| ctu54     | 147.32.84.164  | Normal  | leave_one_capture_out  | random_forest        | 96       | 0        | 0.0          |
+| ctu54     | 147.32.84.170  | Normal  | leave_one_capture_out  | logistic_regression  | 983      | 0        | 0.0          |
+| ctu54     | 147.32.84.170  | Normal  | leave_one_capture_out  | random_forest        | 983      | 0        | 0.0          |
+| ctu46     | 147.32.84.165  | Botnet  | temporal_70_30         | logistic_regression  | 9        | 9        | 100.0        |
+| ctu46     | 147.32.84.165  | Botnet  | temporal_70_30         | random_forest        | 9        | 9        | 100.0        |
+| ctu46     | 147.32.84.164  | Normal  | temporal_70_30         | logistic_regression  | 9        | 0        | 0.0          |
+| ctu46     | 147.32.84.164  | Normal  | temporal_70_30         | random_forest        | 9        | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | temporal_70_30         | logistic_regression  | 10       | 0        | 0.0          |
+| ctu46     | 147.32.84.170  | Normal  | temporal_70_30         | random_forest        | 10       | 0        | 0.0          |
+| ctu52     | 147.32.84.165  | Botnet  | temporal_70_30         | logistic_regression  | 2        | 2        | 100.0        |
+| ctu52     | 147.32.84.165  | Botnet  | temporal_70_30         | random_forest        | 2        | 0        | 0.0          |
+| ctu52     | 147.32.84.191  | Botnet  | temporal_70_30         | logistic_regression  | 3        | 2        | 66.7         |
+| ctu52     | 147.32.84.191  | Botnet  | temporal_70_30         | random_forest        | 3        | 0        | 0.0          |
+| ctu52     | 147.32.84.134  | Normal  | temporal_70_30         | logistic_regression  | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.134  | Normal  | temporal_70_30         | random_forest        | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | temporal_70_30         | logistic_regression  | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.164  | Normal  | temporal_70_30         | random_forest        | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | temporal_70_30         | logistic_regression  | 5        | 0        | 0.0          |
+| ctu52     | 147.32.84.170  | Normal  | temporal_70_30         | random_forest        | 5        | 0        | 0.0          |
+| ctu53     | 147.32.84.165  | Botnet  | temporal_70_30         | logistic_regression  | 21       | 21       | 100.0        |
+| ctu53     | 147.32.84.165  | Botnet  | temporal_70_30         | random_forest        | 21       | 19       | 90.5         |
+| ctu53     | 147.32.84.191  | Botnet  | temporal_70_30         | logistic_regression  | 21       | 21       | 100.0        |
+| ctu53     | 147.32.84.191  | Botnet  | temporal_70_30         | random_forest        | 21       | 20       | 95.2         |
+| ctu53     | 147.32.84.192  | Botnet  | temporal_70_30         | logistic_regression  | 21       | 21       | 100.0        |
+| ctu53     | 147.32.84.192  | Botnet  | temporal_70_30         | random_forest        | 21       | 21       | 100.0        |
+| ctu53     | 147.32.84.134  | Normal  | temporal_70_30         | logistic_regression  | 22       | 0        | 0.0          |
+| ctu53     | 147.32.84.134  | Normal  | temporal_70_30         | random_forest        | 22       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | temporal_70_30         | logistic_regression  | 22       | 0        | 0.0          |
+| ctu53     | 147.32.84.164  | Normal  | temporal_70_30         | random_forest        | 22       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | temporal_70_30         | logistic_regression  | 22       | 0        | 0.0          |
+| ctu53     | 147.32.84.170  | Normal  | temporal_70_30         | random_forest        | 22       | 0        | 0.0          |
+| ctu54     | 147.32.84.165  | Botnet  | temporal_70_30         | logistic_regression  | 293      | 293      | 100.0        |
+| ctu54     | 147.32.84.165  | Botnet  | temporal_70_30         | random_forest        | 293      | 293      | 100.0        |
+| ctu54     | 147.32.84.134  | Normal  | temporal_70_30         | logistic_regression  | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.134  | Normal  | temporal_70_30         | random_forest        | 43       | 0        | 0.0          |
+| ctu54     | 147.32.84.164  | Normal  | temporal_70_30         | logistic_regression  | 91       | 0        | 0.0          |
+| ctu54     | 147.32.84.164  | Normal  | temporal_70_30         | random_forest        | 91       | 0        | 0.0          |
+| ctu54     | 147.32.84.170  | Normal  | temporal_70_30         | logistic_regression  | 294      | 0        | 0.0          |
+| ctu54     | 147.32.84.170  | Normal  | temporal_70_30         | random_forest        | 294      | 0        | 0.0          |
++-----------+----------------+---------+------------------------+----------------------+----------+----------+--------------+
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
+| scenario  |       ip       | windows  | flagged_windows  |  max_p  | mean_p  |  flows   | n_dst_ips  | unanswered_syn  | smtp_flows  | top_dport  |
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
+| ctu46     | 147.32.85.35   | 15       | 0                | 0.154   | 0.0209  | 142      | 11         | 17              | 0           | 24784      |
+| ctu46     | 147.32.86.155  | 26       | 0                | 0.1281  | 0.0245  | 643      | 42         | 14              | 15          | 993        |
+| ctu46     | 147.32.84.118  | 31       | 0                | 0.12    | 0.0438  | 5232     | 211        | 692             | 0           | 6881       |
+| ctu46     | 147.32.85.5    | 31       | 0                | 0.1177  | 0.008   | 488      | 39         | 2               | 0           | 443        |
+| ctu46     | 147.32.85.84   | 31       | 0                | 0.1003  | 0.011   | 435      | 26         | 0               | 0           | 21956      |
+| ctu46     | 147.32.87.254  | 2        | 0                | 0.0993  | 0.0555  | 90       | 9          | 0               | 0           | 80         |
+| ctu46     | 147.32.84.168  | 30       | 0                | 0.0984  | 0.0108  | 573      | 36         | 4               | 0           | 80         |
+| ctu46     | 147.32.84.21   | 31       | 0                | 0.0854  | 0.0175  | 1170     | 33         | 56              | 0           | 80         |
+| ctu46     | 147.32.85.40   | 28       | 0                | 0.0827  | 0.0149  | 814      | 25         | 0               | 0           | 80         |
+| ctu46     | 147.32.85.47   | 14       | 0                | 0.0792  | 0.015   | 220      | 23         | 0               | 0           | 80         |
+| ctu46     | 147.32.84.111  | 31       | 0                | 0.0784  | 0.0109  | 684      | 31         | 2               | 0           | 53         |
+| ctu46     | 147.32.87.252  | 25       | 0                | 0.0777  | 0.0083  | 275      | 26         | 7               | 0           | 80         |
+| ctu46     | 147.32.86.176  | 10       | 0                | 0.0698  | 0.0159  | 429      | 33         | 8               | 0           | 80         |
+| ctu46     | 147.32.86.165  | 30       | 0                | 0.0681  | 0.0149  | 1207     | 40         | 1               | 0           | 80         |
+| ctu46     | 147.32.85.76   | 31       | 0                | 0.0663  | 0.0077  | 1879     | 71         | 6               | 0           | 80         |
+| ctu52     | 147.32.84.94   | 17       | 0                | 0.3032  | 0.0514  | 1157     | 44         | 20              | 0           | 80         |
+| ctu52     | 147.32.86.116  | 17       | 0                | 0.2336  | 0.1026  | 17104    | 1225       | 0               | 0           | 80         |
+| ctu52     | 147.32.87.248  | 17       | 0                | 0.2097  | 0.0324  | 389      | 140        | 34              | 0           | 443        |
+| ctu52     | 147.32.84.179  | 17       | 0                | 0.1573  | 0.0262  | 137      | 10         | 43              | 0           | 22         |
+| ctu52     | 147.32.84.118  | 17       | 0                | 0.1395  | 0.0578  | 2076     | 146        | 217             | 0           | 6881       |
+| ctu52     | 147.32.86.111  | 17       | 0                | 0.1344  | 0.0219  | 548      | 23         | 0               | 0           | 80         |
+| ctu52     | 147.32.80.105  | 11       | 0                | 0.1289  | 0.0227  | 299      | 2          | 0               | 0           | 53133      |
+| ctu52     | 147.32.84.24   | 1        | 0                | 0.1142  | 0.1142  | 2        | 2          | 0               | 0           | 80         |
+| ctu52     | 147.32.84.171  | 13       | 0                | 0.1142  | 0.0125  | 39       | 3          | 0               | 0           | 80         |
+| ctu52     | 147.32.85.30   | 5        | 0                | 0.1001  | 0.03    | 334      | 56         | 20              | 0           | 53         |
+| ctu52     | 147.32.86.208  | 9        | 0                | 0.0958  | 0.0129  | 596      | 27         | 0               | 0           | 80         |
+| ctu52     | 147.32.84.68   | 17       | 0                | 0.089   | 0.0327  | 767      | 41         | 0               | 0           | 443        |
+| ctu52     | 147.32.85.24   | 16       | 0                | 0.0769  | 0.0154  | 706      | 75         | 1               | 0           | 80         |
+| ctu52     | 147.32.84.202  | 8        | 0                | 0.0764  | 0.02    | 17       | 3          | 0               | 0           | 80         |
+| ctu52     | 147.32.84.59   | 17       | 0                | 0.07    | 0.0253  | 20043    | 900        | 237             | 0           | 80         |
+| ctu53     | 147.32.85.118  | 74       | 0                | 0.18    | 0.0028  | 1212     | 32         | 23              | 2           | 443        |
+| ctu53     | 147.32.86.211  | 28       | 0                | 0.1299  | 0.0074  | 619      | 11         | 10              | 0           | 53         |
+| ctu53     | 147.32.84.171  | 53       | 0                | 0.1174  | 0.0381  | 244      | 3          | 30              | 0           | 80         |
+| ctu53     | 147.32.85.14   | 1        | 0                | 0.1173  | 0.1173  | 8        | 2          | 0               | 0           | 53         |
+| ctu53     | 147.32.87.3    | 41       | 0                | 0.0902  | 0.0046  | 166      | 5          | 0               | 0           | 56652      |
+| ctu53     | 147.32.85.20   | 74       | 0                | 0.09    | 0.0145  | 2311     | 27         | 6               | 0           | 80         |
+| ctu53     | 147.32.85.8    | 74       | 0                | 0.09    | 0.0013  | 2877     | 29         | 7               | 0           | 443        |
+| ctu53     | 147.32.86.146  | 2        | 0                | 0.0821  | 0.0821  | 2        | 1          | 0               | 0           | 80         |
+| ctu53     | 147.32.86.102  | 56       | 0                | 0.0802  | 0.0152  | 653      | 6          | 0               | 0           | 80         |
+| ctu53     | 147.32.86.122  | 74       | 0                | 0.0799  | 0.0033  | 6720     | 83         | 4               | 0           | 80         |
+| ctu53     | 147.32.85.31   | 28       | 0                | 0.0799  | 0.0096  | 405      | 5          | 0               | 0           | 80         |
+| ctu53     | 147.32.86.58   | 73       | 0                | 0.0787  | 0.0041  | 1750     | 60         | 35              | 0           | 80         |
+| ctu53     | 147.32.80.7    | 70       | 0                | 0.0701  | 0.0012  | 504      | 9          | 39              | 94          | 25         |
+| ctu53     | 147.32.86.187  | 74       | 0                | 0.07    | 0.0027  | 7459     | 60         | 6               | 0           | 80         |
+| ctu53     | 147.32.85.120  | 59       | 0                | 0.07    | 0.0055  | 627      | 22         | 0               | 21          | 993        |
+| ctu54     | 147.32.85.84   | 950      | 1                | 0.608   | 0.0093  | 9888     | 132        | 17              | 0           | 53         |
+| ctu54     | 147.32.85.56   | 972      | 1                | 0.5023  | 0.0023  | 13827    | 52         | 3               | 0           | 42891      |
+| ctu54     | 147.32.85.20   | 21       | 0                | 0.4288  | 0.035   | 191      | 5          | 0               | 0           | 53         |
+| ctu54     | 147.32.84.181  | 23       | 0                | 0.309   | 0.0529  | 476      | 23         | 0               | 0           | 53         |
+| ctu54     | 147.32.86.212  | 32       | 0                | 0.2994  | 0.0527  | 242      | 13         | 40              | 0           | 80         |
+| ctu54     | 147.32.86.189  | 57       | 0                | 0.2891  | 0.1734  | 1140     | 31         | 738             | 0           | 28221      |
+| ctu54     | 147.32.84.229  | 984      | 0                | 0.2776  | 0.0046  | 1522262  | 2393       | 108             | 0           | 33033      |
+| ctu54     | 147.32.87.4    | 642      | 0                | 0.2686  | 0.0061  | 3077     | 13         | 0               | 45          | 123        |
+| ctu54     | 147.32.87.5    | 475      | 0                | 0.2486  | 0.0142  | 1277     | 5          | 0               | 31          | 0          |
+| ctu54     | 147.32.85.18   | 13       | 0                | 0.2437  | 0.0356  | 103      | 4          | 0               | 0           | 80         |
+| ctu54     | 147.32.86.178  | 7        | 0                | 0.2409  | 0.0443  | 23       | 3          | 0               | 0           | 53         |
+| ctu54     | 147.32.87.48   | 848      | 0                | 0.239   | 0.0119  | 6652     | 19         | 0               | 0           | 161        |
+| ctu54     | 147.32.86.123  | 27       | 0                | 0.2372  | 0.0182  | 261      | 13         | 0               | 0           | 80         |
+| ctu54     | 147.32.86.89   | 135      | 0                | 0.2358  | 0.0111  | 2223     | 29         | 0               | 0           | 80         |
+| ctu54     | 147.32.85.30   | 34       | 0                | 0.2292  | 0.0139  | 1459     | 125        | 1               | 0           | 53         |
++-----------+----------------+----------+------------------+---------+---------+----------+------------+-----------------+-------------+------------+
