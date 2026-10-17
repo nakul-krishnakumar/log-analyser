@@ -13,7 +13,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PORT = 8599
-PAGES = [("", "overview", "Captures"), ("traffic", "traffic", "Packets per minute"), ("packets", "packets", "Display filter"),
+PAGES = [("", "start", "Which file do I upload?"), ("overview", "overview", "Captures"), ("traffic", "traffic", "Packets per minute"), ("packets", "packets", "Display filter"),
          ("detection", "detection", "Per capture"), ("hunt", "hunt", "Threat hunt")]
 
 server = subprocess.Popen(["streamlit", "run", "ui/app.py", "--server.headless", "true", "--server.port", str(PORT),

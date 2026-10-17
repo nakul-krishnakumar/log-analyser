@@ -9,7 +9,7 @@ them, learns how infected hosts behave on the wire, flags them, and shows everyt
 still work when the malware changes?
 
 - **Demo video:** [`demo/demo.mp4`](demo/demo.mp4). Part 1 is the full pipeline run, with idle waits shortened and the real stage timings printed on screen. Part 2 is a dashboard walkthrough.
-- **Dashboard:** `uv run streamlit run ui/app.py` → <http://localhost:8501>. Screenshots are in [`demo/screens/`](demo/screens).
+- **Dashboard:** `uv run streamlit run ui/app.py` → <http://localhost:8501>. It opens on **Analyse a capture**: upload a Wireshark capture and watch it go through the pipeline step by step. Screenshots are in [`demo/screens/`](demo/screens).
 
 ## Architecture
 
@@ -31,7 +31,7 @@ Every stage reads the previous stage's output from HDFS.
 
 | Stage | Tool | Input → Output | Why this tool |
 |---|---|---|---|
-| Export | `ingest/pcap_to_csv.py` (stdlib) | pcapng → Wireshark CSV (`No., Time, Source, Destination, Protocol, Length, Info`) | The same columns as Wireshark's *Export Packet Dissections → CSV*, so the pipeline accepts real Wireshark exports. `tshark` is the drop-in alternative; it needs root to install here. |
+| Export | `ingest/pcap_to_csv.py` (stdlib) | pcapng → Wireshark CSV (`No., Time, Source, Destination, Protocol, Length, Info`) | The same columns as Wireshark's *Export Packet Dissections → CSV*. Reads pcap and pcapng (also .gz/.bz2) from Ethernet, Linux-cooked ("any" interface), raw-IP and loopback captures. `tshark` is the drop-in alternative; it needs root to install here. |
 | Storage | HDFS 3.4.1 | 10.8 GB of packet logs, labels | Single store all three engines read and write. |
 | ETL | Pig 0.18 on Tez | 74.9M packet rows → 7.4M flow records | Messy text: regexes over Wireshark's free-text `Info` column (`1038 → 6667 [SYN, ACK] … Len=0`), rejecting ARP/IPv6/malformed rows, `DISTINCT` de-duplication, and NetFlow-style aggregation with a 60 s active timeout. Dataflow scripting, not a natural SQL fit. |
 | Warehouse | Hive 4.2 on Tez | flows + host labels → Parquet `host_windows` (2.3M host-minutes) + dashboard tables | Large joins: each flow joined to its **reverse flow** (did the other side ever answer?), the label join, per-host-minute aggregation, and SQL validation of Pig's cleaning. It also serves Spark's predictions back. |
@@ -142,15 +142,32 @@ SCENARIOS="ctu46 ctu52" ./run_pipeline.sh fetch ingest pig hive   # a subset of 
 uv run streamlit run ui/app.py # dashboard on :8501
 
 ./tests/test_pig.sh            # Pig flow-building checks on a hand-written Wireshark CSV (local mode)
-uv run python tests/test_ui.py # starts the dashboard, loads every page in Chromium, fails on any error
+uv run python tests/test_ingest.py  # converter on hand-built pcap / gzipped pcapng / a non-capture file
+uv run python tests/test_ui.py      # starts the dashboard, loads every page in Chromium, fails on any error
+uv run python tests/test_upload.py  # uploads a capture in the browser, waits for all 5 steps (needs the cluster)
 ```
 
 Stage timings on the full data (recorded run): ingest (pcap → CSV → HDFS) 5.6 min, Pig 5.1 min, Hive 10.8 min (the reverse-flow self-join
 over 7.4M flows), Spark 1.8 min, predictions and export under 1 min: 24 min end to end.
 
-To analyse **your own Wireshark capture**: *File → Export Packet Dissections → As CSV*, with View → Time Display Format →
-*UTC Date and Time of Day*. Name the file `ctuNN.csv`, put it in `hdfs:///netlogs/raw/packets/`, and run from the `pig` stage.
-Without labels it shows up in the traffic pages and the threat hunt.
+## Analyse your own capture
+
+Open the dashboard and use **Analyse a capture**. Upload the capture file itself, from Wireshark's *File → Save As…* as
+.pcapng or .pcap (`tcpdump -w` works too; .gz and .bz2 are fine). A CSV export is not accepted: Wireshark's CSV names
+packets by application (DNS, TLS …) and drops the port numbers that flows are built from.
+
+The page runs five steps and shows each one live. Each upload gets its own HDFS folder (`/netlogs/uploads/<name>`),
+Hive database (`up_<name>`) and results folder (`results/uploads/<name>`):
+
+1. **Read the capture**: convert it to the Wireshark-style log and stream it into HDFS.
+2. **Pig**: parse it, drop non-IPv4 rows and duplicates, and build one-minute flows.
+3. **Hive**: reverse-flow join and per-host-minute behaviour.
+4. **Spark MLlib**: score every host-minute with the random forest trained on CTU-13 (`/netlogs/spark/model`).
+5. **Export**: copy the results out, then show a verdict, the hosts (most suspicious first), traffic charts and a packet preview.
+
+A 30 MB capture (350k packets) takes about 2 minutes end to end. The same run from the shell:
+`INPUT=x.pcapng SCENARIOS=x ROOT=/netlogs/uploads/x DB=up_x OUT=results/uploads/x ./run_pipeline.sh ingest pig hive score export`.
+The model knows Virut, Rbot and NSIS behaviour, so malware that behaves differently can be missed (see Detection results).
 
 ## Layout
 
@@ -163,8 +180,9 @@ hive/01_warehouse.sql      tables, reverse-flow join, host-minute features
 hive/02_dashboard.sql      validation + dashboard tables
 hive/03_predictions.sql    Spark predictions back in Hive, host verdicts, threat-hunt leads
 spark/detect_botnets.py    MLlib training + both evaluation protocols
-ui/app.py                  Streamlit dashboard
-tests/                     Pig fixture test, UI smoke test
+ui/app.py                  Streamlit dashboard: capture upload + step-by-step analysis, CTU-13 study pages
+spark/score_capture.py     scores one processed capture with the saved model
+tests/                     Pig fixture test, converter test, UI smoke test, end-to-end upload test
 demo/                      demo video, terminal recording, UI recorder, screenshots
 results/                   reports + metrics from the last full run; results/dashboard is what the UI reads
 ```

@@ -1,22 +1,22 @@
 -- Stage 6 (Hive): Spark's predictions come back into the warehouse and feed the dashboard.
-USE netlogs;
+USE ${hivevar:db};
 SET hive.resultset.use.unique.column.names=false;
 
 DROP TABLE IF EXISTS window_predictions;
 CREATE EXTERNAL TABLE window_predictions (
   scenario STRING, ip STRING, minute STRING, label STRING, protocol STRING, model STRING, prediction INT, p_botnet DOUBLE)
-STORED AS PARQUET LOCATION '/netlogs/spark/window_predictions';
+STORED AS PARQUET LOCATION '${hivevar:root}/spark/window_predictions';
 
 DROP TABLE IF EXISTS host_scores;
 CREATE EXTERNAL TABLE host_scores (
   scenario STRING, ip STRING, windows BIGINT, flagged_windows BIGINT, max_p DOUBLE, mean_p DOUBLE)
-STORED AS PARQUET LOCATION '/netlogs/spark/host_scores';
+STORED AS PARQUET LOCATION '${hivevar:root}/spark/host_scores';
 
 -- Per labelled host and protocol: how much of its (test) time the model flagged it - a host-level verdict.
 DROP TABLE IF EXISTS d_host_verdicts;
 CREATE EXTERNAL TABLE d_host_verdicts (scenario STRING, ip STRING, label STRING, protocol STRING, model STRING,
   windows BIGINT, flagged BIGINT, flagged_pct DOUBLE)
-STORED AS PARQUET LOCATION '/netlogs/dashboard/host_verdicts';
+STORED AS PARQUET LOCATION '${hivevar:root}/dashboard/host_verdicts';
 
 INSERT OVERWRITE TABLE d_host_verdicts
 SELECT scenario, ip, label, protocol, model, COUNT(*), SUM(prediction), ROUND(100 * AVG(prediction), 1)
@@ -26,7 +26,7 @@ FROM window_predictions WHERE label IS NOT NULL GROUP BY scenario, ip, label, pr
 DROP TABLE IF EXISTS d_suspicious_hosts;
 CREATE EXTERNAL TABLE d_suspicious_hosts (scenario STRING, ip STRING, windows BIGINT, flagged_windows BIGINT,
   max_p DOUBLE, mean_p DOUBLE, flows BIGINT, n_dst_ips BIGINT, unanswered_syn BIGINT, smtp_flows BIGINT, top_dport INT)
-STORED AS PARQUET LOCATION '/netlogs/dashboard/suspicious_hosts';
+STORED AS PARQUET LOCATION '${hivevar:root}/dashboard/suspicious_hosts';
 
 INSERT OVERWRITE TABLE d_suspicious_hosts
 SELECT s.scenario, s.ip, s.windows, s.flagged_windows, s.max_p, s.mean_p,

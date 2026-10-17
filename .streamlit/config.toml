@@ -1,0 +1,2 @@
+[server]
+maxUploadSize = 2048  # MB; captures are often hundreds of MB

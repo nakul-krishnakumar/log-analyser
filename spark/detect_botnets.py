@@ -2,6 +2,7 @@
 
 Reads  hdfs:///netlogs/hive/host_windows                       (written by Hive)
 Writes hdfs:///netlogs/spark/{window_predictions,host_scores}  (queried back from Hive)
+       hdfs:///netlogs/spark/model                                (used by score_capture.py)
        results/metrics.json, results/feature_importance.json
 
 Samples: one university host (147.32.0.0/16) x one minute with >= MIN_PKTS packets.
@@ -136,6 +137,9 @@ out.write.mode("overwrite").parquet(f"{HDFS}/spark/window_predictions")
  .agg(F.count("*").alias("windows"), F.sum("prediction").alias("flagged_windows"),
       F.round(F.max("p_botnet"), 4).alias("max_p"), F.round(F.avg("p_botnet"), 4).alias("mean_p"))
  .write.mode("overwrite").parquet(f"{HDFS}/spark/host_scores"))
+
+# Deployable model: random forest on every labelled sample; the dashboard's "Analyse a capture" page scores uploads with it.
+model("random_forest").fit(weighted(data)).write().overwrite().save(f"{HDFS}/spark/model")
 
 avg_imp = sorted(zip(features, sum(importances) / len(importances)), key=lambda x: -x[1])
 RESULTS.mkdir(exist_ok=True)

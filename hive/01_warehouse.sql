@@ -1,24 +1,24 @@
 -- Stage 4 (Hive): warehouse over Pig's flows + host labels, and the per-host-minute features Spark trains on.
-CREATE DATABASE IF NOT EXISTS netlogs;
-USE netlogs;
+CREATE DATABASE IF NOT EXISTS ${hivevar:db};
+USE ${hivevar:db};
 
 DROP TABLE IF EXISTS raw_packets;
-CREATE EXTERNAL TABLE raw_packets (line STRING) LOCATION '/netlogs/raw/packets';
+CREATE EXTERNAL TABLE raw_packets (line STRING) LOCATION '${hivevar:root}/raw/packets';
 
 DROP TABLE IF EXISTS rejects;
 CREATE EXTERNAL TABLE rejects (scenario STRING, line STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '/netlogs/pig/rejects';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '${hivevar:root}/pig/rejects';
 
 DROP TABLE IF EXISTS flows;
 CREATE EXTERNAL TABLE flows (
   scenario STRING, minute STRING, src STRING, dst STRING, proto STRING, sport INT, dport INT,
   pkts BIGINT, bytes BIGINT, payload BIGINT, first_ts STRING, last_ts STRING,
   syn_only BIGINT, synack BIGINT, rst BIGINT, fin BIGINT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '/netlogs/pig/flows';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '${hivevar:root}/pig/flows';
 
 DROP TABLE IF EXISTS hosts;
 CREATE EXTERNAL TABLE hosts (scenario STRING, ip STRING, label STRING, malware STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION '/netlogs/raw/labels'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION '${hivevar:root}/raw/labels'
 TBLPROPERTIES ('skip.header.line.count'='1');
 
 -- One row per (capture, source host, minute): what that host did on the network in that minute.
@@ -32,7 +32,7 @@ CREATE EXTERNAL TABLE host_windows (
   syn_flows BIGINT, unanswered_syn BIGINT, rst_pkts BIGINT, fin_pkts BIGINT, one_pkt_flows BIGINT, no_reply_flows BIGINT,
   dns_flows BIGINT, smtp_flows BIGINT, http_flows BIGINT, https_flows BIGINT, irc_flows BIGINT, high_port_flows BIGINT,
   label STRING, malware STRING)
-STORED AS PARQUET LOCATION '/netlogs/hive/host_windows';
+STORED AS PARQUET LOCATION '${hivevar:root}/hive/host_windows';
 
 INSERT OVERWRITE TABLE host_windows
 SELECT f.scenario, f.src, f.minute,

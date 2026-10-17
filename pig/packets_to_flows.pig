@@ -1,12 +1,12 @@
 -- Stage 3 (Pig): Wireshark CSV packet logs -> clean, de-duplicated packets -> 1-minute flow records.
---   in : $IN   one Wireshark-style CSV per capture (ctuNN.csv):  "No.","Time","Source","Destination","Protocol","Length","Info"
+--   in : $IN   one Wireshark-style CSV per capture (<capture name>.csv):  "No.","Time","Source","Destination","Protocol","Length","Info"
 --   out: $OUT/flows    tsv  scenario, minute, src, dst, proto, sport, dport, pkts, bytes, payload, first_ts, last_ts,
 --                           syn_only, synack, rst, fin   (per-flow packet counts by TCP flag)
 --        $OUT/rejects  rows that are not IPv4 TCP/UDP/ICMP (ARP, IPv6, malformed) - Hive counts them
 
 raw = LOAD '$IN' USING PigStorage('\u0001', '-tagFile') AS (file:chararray, line:chararray);
 
-rows = FOREACH raw GENERATE REGEX_EXTRACT(file, '(ctu\\d+)', 1) AS scenario, line,
+rows = FOREACH raw GENERATE REGEX_EXTRACT(file, '^(.+)\\.csv$', 1) AS scenario, line,
     REGEX_EXTRACT_ALL(line, '^"\\d+","(\\d{4}-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d\\.\\d+)","(\\d+\\.\\d+\\.\\d+\\.\\d+)","(\\d+\\.\\d+\\.\\d+\\.\\d+)","(TCP|UDP|ICMP)","(\\d+)","(.*)"$') AS f;
 
 SPLIT rows INTO good IF f IS NOT NULL, bad IF f IS NULL AND NOT (line MATCHES '^"No\\.".*');
